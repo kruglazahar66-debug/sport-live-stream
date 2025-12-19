@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прямой эфир - SportLive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .stream-container {
+            padding: 100px 0 50px;
+        }
+        .player-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            margin-bottom: 2rem;
+        }
+        #stream-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .chat-container {
+            background: #1a1a2e;
+            border-radius: 15px;
+            padding: 1rem;
+            height: 500px;
+            overflow-y: auto;
+        }
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid #2a2a4a;
+        }
+        .chat-input {
+            width: 100%;
+            padding: 1rem;
+            background: #2a2a4a;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            margin-top: 1rem;
+        }
+        .stream-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #1a1a2e;
+            border-radius: 15px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2rem;
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Sport<span>Live</span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="live.html" class="active"><i class="fas fa-tv"></i> Прямой эфир</a></li>
+                <li><a href="schedule.html"><i class="fas fa-calendar-alt"></i> Расписание</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> О нас</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="stream-container">
+        <div class="container">
+            <div class="player-wrapper">
+                <div id="stream-player">
+                    <!-- Видеоплеер загружается через JavaScript -->
+                    <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-tv fa-5x" style="color: #ff0000; margin-bottom: 1rem;"></i>
+                            <h3>Трансляция начнется через несколько секунд...</h3>
+                            <p>Пожалуйста, подождите</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stream-stats">
+                <div class="stat-item">
+                    <div class="stat-value">45.2K</div>
+                    <div>Зрителей онлайн</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">65'</div>
+                    <div>Текущее время</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2-1</div>
+                    <div>Счет</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">HD</div>
+                    <div>Качество</div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <h3><i class="fas fa-comments"></i> Чат трансляции</h3>
+                    <div class="chat-container" id="chat">
+                        <div class="chat-message">
+                            <strong>User123:</strong> Отличный гол!
+                        </div>
+                        <div class="chat-message">
+                            <strong>Fan456:</strong> Что за пас от Месси!
+                        </div>
+                        <div class="chat-message">
+                            <strong>SportLover:</strong> Какой матч! 🔥
+                        </div>
+                    </div>
+                    <input type="text" class="chat-input" placeholder="Написать сообщение..." id="chat-input">
+                </div>
+                <div>
+                    <h3><i class="fas fa-info-circle"></i> Информация о матче</h3>
+                    <div style="background: #1a1a2e; padding: 1.5rem; border-radius: 15px;">
+                        <h4>Аргентина vs Франция</h4>
+                        <p><strong>Турнир:</strong> Чемпионат Мира 2023</p>
+                        <p><strong>Стадион:</strong> Лусаил, Катар</p>
+                        <p><strong>Судья:</strong> Даниэле Орсато</p>
+                        <p><strong>Статус:</strong> Идет 2-й тайм</p>
+                        
+                        <h4 style="margin-top: 1.5rem;">Составы</h4>
+                        <div class="teams-lineup">
+                            <div>
+                                <h5>Аргентина</h5>
+                                <ul>
+                                    <li>23. Эмилиано Мартинес</li>
+                                    <li>26. Науэль Молина</li>
+                                    <li>13. Кристиан Ромеро</li>
+                                    <li>19. Николас Отаменди</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Франция</h5>
+                                <ul>
+                                    <li>1. Уго Льорис</li>
+                                    <li>5. Жюль Кунде</li>
+                                    <li>4. Рафаэль Варан</li>
+                                    <li>18. Дайо Упамекано</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2024 SportLive. Трансляция предоставлена для ознакомления.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Чат трансляции
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && this.value.trim()) {
+                const chat = document.getElementById('chat');
+                const message = document.createElement('div');
+                message.className = 'chat-message';
+                message.innerHTML = `<strong>Вы:</strong> ${this.value}`;
+                chat.appendChild(message);
+                chat.scrollTop = chat.scrollHeight;
+                this.value = '';
+            }
+        });
+
+        // Стили для сетки
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                .grid-2 {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 2rem;
+                    margin-top: 2rem;
+                }
+                @media (max-width: 768px) {
+                    .grid-2 { grid-template-columns: 1fr; }
+                }
+                .teams-lineup {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+                }
+            </style>
+        `);
+    </script>
+</body>
+</html>
